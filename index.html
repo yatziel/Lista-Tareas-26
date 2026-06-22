@@ -1,15 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>✅ Lista de Tareas</title>
   <!-- Vinculamos CSS -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <!-- Vinculamos JS -->
   <script src="script.js" defer></script>
 </head>
 <body>
-  <h1>✅ Lista de Tareas</h1>
+
+  <div class="contenedor">
+    <!-- Elementos principales -->
+    <h1 class="titulo">✅ Lista de Tareas</h1>
+    <p class="mensaje">Escribe tu primera tarea! 🤗</p>
+    <input type="text" class="tarea-entrada" placeholder="Estudiar para el examen de..."/>
+    
+    <!-- Contenedor botones -->
+    <div class="contenedor-botones">
+      <button class="boton boton-agregar">Crear Tarea</button>
+      <button class="boton boton-ocultar">Ocultar Completadas</button>
+      <button class="boton boton-eliminar">Eliminar Completadas</button>
+    </div>
+
+    <!-- Contendor contadores -->
+    <div class="contenedor-contadores">
+      <p>Tareas Totales: <span class="tareas-totales">0</span> </p>
+      <p>Tareas Completadas: <span class="tareas-completadas">0</span> </p>
+    </div>
+    
+    <!-- Contenedor tareas -->
+    <div class="contenedor-tareas">
+
+      <!-- Tarea Nueva -->
+
+      <div class="tarea">
+        <p class="tarea-texto">Estudiar para el examen de Luis Limón! 😱</p>
+        <div class="tarea-iconos">
+          <i>icono check</i>
+          <i>icono trash</i>
+        </div>
+      </div>
+
+      <!-- Tarea Completada -->
+
+      <div class="tarea tarea-completada">
+        <p class="tarea-texto">Modelar los props para el set de programa Archivo 3:33! 👻</p>
+        <div class="tarea-iconos">
+          <i>icono dash</i>
+          <i>icono trash</i>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  
 </body>
 </html>
