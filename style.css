@@ -56,6 +56,89 @@
 }
 
 body {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  min-height: 100vh;
+  padding: var(--space-lg);
   font-family: var(--font-primary);
+  background-color: var(--bg-body);
 }
 
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  width: 100%;
+  max-width: 640px;
+  height: fit-content;
+  padding: var(--space-md);
+  border-width: var(--border-size);
+  border-style: solid;
+  border-color: var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: var(--bg-container);
+}
+
+.titulo {
+  font-size: 1.6rem;
+  color: var(--txt-primary);
+}
+
+.mensaje {
+  font-size: 1rem;
+  color: var(--txt-secondary);
+}
+
+.tarea-entrada {
+  width: 100%;
+  font-size: 1.2rem;
+  padding: var(--space-lg);
+  border-radius: var(--border-radius);
+  border: none;
+}
+
+.contenedor-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+.boton {
+  padding: var(--space-sm) var(--space-md);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: .9rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--btn-text);
+}
+
+.boton:hover {
+  color: var(--btn-text-hover);
+}
+
+.boton-agregar {
+  background-color: var(--btn-add);
+}
+
+.boton-agregar:hover {
+  background-color: var(--btn-add-hover);
+}
+
+.boton-ocultar {
+  background-color: var(--btn-hide);
+}
+
+.boton-ocultar:hover {
+  background-color: var(--btn-hide-hover);
+}
+
+.boton-eliminar {
+  background-color: var(--btn-remove);
+}
+
+.boton-eliminar:hover {
+  background-color: var(--btn-remove-hover);
+}
