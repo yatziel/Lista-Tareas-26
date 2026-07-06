@@ -3,6 +3,7 @@
 const tareaEntrada = document.getElementById('tarea-entrada');
 const botonAgregar = document.getElementById('boton-agregar');
 const mensaje = document.getElementById('mensaje');
+const contenedorTareas = document.getElementById('contenedor-tareas');
 
 /* Escuchadores */
 
@@ -19,7 +20,8 @@ function agregarTarea() {
   // Evaluar la constante texto
 
   if(texto) {
-    crearElementoTarea();
+    const elementoTarea = crearElementoTarea();
+    contenedorTareas.append(elementoTarea);
     tareaEntrada.value = ''; 
     mensaje.textContent = 'Tarea creada correctamente! 😊';
   } else {
@@ -30,6 +32,7 @@ function agregarTarea() {
 /* Mostrar un mensaje al escribir en el input */
 
 tareaEntrada.addEventListener('input', () => {
+
   // Evaluar si el valor del input esta vacio
 
   if( tareaEntrada.value.trim() === '' ) {
@@ -50,12 +53,25 @@ function crearElementoTarea() {
   const iconoCompletada = document.createElement('i');
   const iconoEliminar = document.createElement('i');
 
-  console.log(tareaContenedor);
-  console.log(tareaTexto);
-  console.log(iconosContenedor);
-  console.log(iconoCompletada);
-  console.log(iconoEliminar);
+  // Crear la estructura de la tarea
 
+  iconosContenedor.append(iconoCompletada, iconoEliminar);
+  tareaContenedor.append(tareaTexto, iconosContenedor);
+
+  // Agregar las clases a los elementos
+
+  tareaContenedor.classList.add('tarea');
+  tareaTexto.classList.add('tarea-texto');
+  iconosContenedor.classList.add('tarea-iconos');
+  iconoCompletada.classList.add('bi', 'bi-check-circle');
+  iconoEliminar.classList.add('bi', 'bi-trash2')
+
+  // Agregar el texto que escriba el usuario en el input
+
+  tareaTexto.innerText = tareaEntrada.value;
+
+  // Retornamos la estructura de la tarea
+  return tareaContenedor;
 }
 
 /* Al presionar la tecla enter se ejecuta Agregar Tarea */
