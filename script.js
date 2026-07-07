@@ -46,6 +46,7 @@ tareaEntrada.addEventListener('input', () => {
 /* Función para crear el elemento tarea */
 
 function crearElementoTarea() {
+
   // Crear los elementos html de la tarea
   const tareaContenedor = document.createElement('div');
   const tareaTexto = document.createElement('p');
@@ -64,11 +65,34 @@ function crearElementoTarea() {
   tareaTexto.classList.add('tarea-texto');
   iconosContenedor.classList.add('tarea-iconos');
   iconoCompletada.classList.add('bi', 'bi-check-circle');
-  iconoEliminar.classList.add('bi', 'bi-trash2')
+  iconoEliminar.classList.add('bi', 'bi-trash2');
 
   // Agregar el texto que escriba el usuario en el input
 
   tareaTexto.innerText = tareaEntrada.value;
+
+  // Escuchadores de los íconos.
+
+  iconoCompletada.addEventListener('click', (e) => {
+    const tareaElemento = e.target.parentNode.parentNode;
+    const esCompletada = tareaElemento.classList.contains('tarea-completada');
+    
+    tareaElemento.classList.toggle('tarea-completada');
+
+    if(esCompletada) {
+      e.target.classList.remove('bi-dash-circle');
+      e.target.classList.add('bi-check-circle');
+    } else {
+      e.target.classList.remove('bi-check-circle');
+      e.target.classList.add('bi-dash-circle');
+    }
+    
+  } );
+
+  iconoEliminar.addEventListener('click', (e) => {
+    const tareaElemento = e.target.parentNode.parentNode;
+    tareaElemento.remove();
+  })
 
   // Retornamos la estructura de la tarea
   return tareaContenedor;
