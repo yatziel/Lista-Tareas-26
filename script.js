@@ -4,6 +4,12 @@ const tareaEntrada = document.getElementById('tarea-entrada');
 const botonAgregar = document.getElementById('boton-agregar');
 const mensaje = document.getElementById('mensaje');
 const contenedorTareas = document.getElementById('contenedor-tareas');
+const tareasTotales = document.getElementById('tareas-totales');
+const tareasCompletadas = document.getElementById('tareas-completadas');
+
+console.log(tareasTotales.textContent);
+console.log(tareasCompletadas.textContent);
+
 
 /* Escuchadores */
 
