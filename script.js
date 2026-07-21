@@ -32,6 +32,8 @@ function agregarTarea() {
     mensaje.textContent = 'Tarea creada correctamente! 😊';
     // Actualizamos contadores
     actulizarContadores();
+    // Actualizamos botones
+    actualizarBotones();
   } else {
     mensaje.textContent = 'No escribiste nada chamaco! 🧐';
   }
@@ -97,7 +99,8 @@ function crearElementoTarea() {
 
     // Actualizamos contadores
     actulizarContadores();
-
+    // Actualizamos botones
+    actualizarBotones();
     
   } );
 
@@ -107,6 +110,8 @@ function crearElementoTarea() {
 
     // Actualizar contadores
     actulizarContadores();
+    // Actualizamos botones
+    actualizarBotones();
 
   })
 
@@ -159,8 +164,50 @@ function eliminarCompletadas() {
 
   // Actualizamos los contadores
   actulizarContadores();
+  // Actualizamos botones
+  actualizarBotones();
 
 }
+
+
+/* Función Actualizar estado de botones */
+
+function actualizarBotones() {
+
+  const tareasTotales = document.querySelectorAll('.tarea');
+  const tareasCompletadas = document.querySelectorAll('.tarea-completada');
+
+  // Deshabilitar "boton ocultar" si no hay tareas completadas.
+
+  if(tareasCompletadas.length === 0) {
+    // El boton se deshabilita
+    botonOcultar.disabled = true;
+    botonOcultar.style.opacity = '0.5';
+    botonOcultar.style.cursor = 'not-allowed';
+  } else {
+    // El boton se habilita
+    botonOcultar.disabled = false;
+    botonOcultar.style.opacity = '1';
+    botonOcultar.style.cursor = 'pointer';
+  }
+
+  // Deshabilitar "boton eliminar" si no hay tareas completadas
+
+  if(tareasCompletadas.length === 0) {
+    // El boton se deshabilita
+    botonEliminar.disabled = true;
+    botonEliminar.style.opacity = '0.5';
+    botonEliminar.style.cursor = 'not-allowed';
+  } else {
+    // El boton se habilita
+    botonEliminar.disabled = false;
+    botonEliminar.style.opacity = '1';
+    botonEliminar.style.cursor = 'pointer';
+  }
+
+}
+
+
 
 /* Al presionar la tecla enter se ejecusta Agregar Tarea */
 
@@ -188,3 +235,4 @@ function actulizarContadores() {
 /* Al inicializar la página */
 
 actulizarContadores();
+actualizarBotones();
