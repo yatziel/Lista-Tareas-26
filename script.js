@@ -165,6 +165,11 @@ function ocultarCompletadas() {
 function eliminarCompletadas() {
   const tareasCompletadas = document.querySelectorAll('.tarea-completada');
 
+  if(tareasCompletadas.length === 0) {
+    mensaje.textContent = 'No hay tareas completadas para eliminar 🤔'
+    return;
+  }
+
   tareasCompletadas.forEach( tarea => tarea.remove() );
 
   mensaje.textContent = 'Se han elminado todas las tareas completadas! 🔥';
@@ -174,7 +179,10 @@ function eliminarCompletadas() {
   // Actualizamos botones
   actualizarBotones();
 
-
+  if(tareasOcultas) {
+    tareasOcultas = false;
+    botonOcultar.textContent = "Ocultar Completadas";
+  }
 
 }
 
