@@ -92,9 +92,11 @@ function crearElementoTarea() {
     if(esCompletada) {
       e.target.classList.remove('bi-dash-circle');
       e.target.classList.add('bi-check-circle');
+      mensaje.textContent = 'Tarea desmarcada como completada! ↩️';
     } else {
       e.target.classList.remove('bi-check-circle');
       e.target.classList.add('bi-dash-circle');
+      mensaje.textContent = 'Tarea marcada como completada! ✅';
     }
 
     // Actualizamos contadores
@@ -107,6 +109,7 @@ function crearElementoTarea() {
   iconoEliminar.addEventListener('click', (e) => {
     const tareaElemento = e.target.parentNode.parentNode;
     tareaElemento.remove();
+    mensaje.textContent = 'Tarea eliminada! 🗑️';
 
     // Actualizar contadores
     actulizarContadores();
@@ -149,8 +152,10 @@ function ocultarCompletadas() {
 
   if(tareasOcultas) {
     botonOcultar.textContent = 'Mostrar Completadas';
+    mensaje.textContent = 'Se han ocultado las tareas completadas! 🫥';
   } else {
     botonOcultar.textContent = 'Ocultar Completadas';
+    mensaje.textContent = 'Se han mostrado las tareas completadas! 👁️';
   }
 
 }
@@ -162,10 +167,14 @@ function eliminarCompletadas() {
 
   tareasCompletadas.forEach( tarea => tarea.remove() );
 
+  mensaje.textContent = 'Se han elminado todas las tareas completadas! 🔥';
+
   // Actualizamos los contadores
   actulizarContadores();
   // Actualizamos botones
   actualizarBotones();
+
+
 
 }
 
