@@ -128,10 +128,10 @@ function ocultarCompletadas() {
 
     if(tareasOcultas) {
       // Mostramos tareas
-      tarea.style.display = "flex";
+      tarea.style.display = 'flex';
     } else {
       // Ocultamos tareas
-      tarea.style.display = "none";
+      tarea.style.display = 'none';
     }
   
   } );
@@ -143,30 +143,26 @@ function ocultarCompletadas() {
   // Cambiar el texto del boton
 
   if(tareasOcultas) {
-    botonOcultar.textContent = "Mostrar Completadas";
+    botonOcultar.textContent = 'Mostrar Completadas';
   } else {
-    botonOcultar.textContent = "Ocultar Completadas"
+    botonOcultar.textContent = 'Ocultar Completadas';
   }
 
 }
 
-
-
-
-
-
-
-
-
-
-
 /* Función Elminar Completadas. Borra las tareas marcadas como completadas */
 
 function eliminarCompletadas() {
-  console.log("Dale chicharrón")
+  const tareasCompletadas = document.querySelectorAll('.tarea-completada');
+
+  tareasCompletadas.forEach( tarea => tarea.remove() );
+
+  // Actualizamos los contadores
+  actulizarContadores();
+
 }
 
-/* Al presionar la tecla enter se ejecuta Agregar Tarea */
+/* Al presionar la tecla enter se ejecusta Agregar Tarea */
 
 tareaEntrada.addEventListener('keydown', (e) => {
   // Evaluar la tecla presionada
